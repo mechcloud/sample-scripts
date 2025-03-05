@@ -19,6 +19,10 @@ apt-get update
 # Install Docker Engine, CLI, and Containerd
 apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+# Clean up
+apt-get clean
+rm -rf /var/lib/apt/lists/*
+
 # Add ubuntu user to docker group (optional, for non-root access)
 usermod -aG docker ubuntu
 newgrp docker
@@ -26,7 +30,3 @@ newgrp docker
 # Verify Docker is running
 su ubuntu
 docker version
-
-# Clean up
-apt-get clean
-rm -rf /var/lib/apt/lists/*
